@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Added namespaced `omp.sh/reasoning` ACP metadata that reports the concrete effort selected for an Auto-classified top-level turn while preserving Auto as the configured thinking option.
+
 ## [17.3.0] - 2026-08-13
 
 ### Breaking Changes
