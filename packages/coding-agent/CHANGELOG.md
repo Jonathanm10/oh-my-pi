@@ -83,6 +83,11 @@
 - Fixed `hub jobs` and empty `hub wait` snapshots hiding running subagents that have no live turn, which removed the only way to discover and `hub cancel` a stale registration; such agents are listed again and flagged as having no turn in flight.
 - Fixed external thinking being offered on xAI reasoning-only Responses models (grok-4 family) that reject `reasoning.effort`, where the private scratchpad ran alongside native reasoning instead of replacing it.
 - Fixed the extension tool-call handler timeout rendering outside a titled section in `/settings` by registering its Extensions group on the Tools tab.
+### Added
+
+- Added namespaced `omp.sh/reasoning` ACP metadata that reports the concrete effort selected for an Auto-classified top-level turn while preserving Auto as the configured thinking option.
+- Added namespaced `omp.sh/async-result` ACP metadata on settled background jobs, so a client can render task/bash completions (id, type, terminal status, label, duration) even when the owning prompt turn has already ended.
+- Added opt-in ambient MCP discovery for ACP sessions via `omp.sh/ambient-mcp-discovery`, letting a client mount host-configured MCP servers alongside its own while reserving bridge server names.
 
 ## [17.3.4] - 2026-08-14
 
@@ -124,11 +129,6 @@
 - Fixed omp plugin install failing with cloning errors for legacy Pi extensions whose tool schemas use legacy-typebox builders.
 - Fixed omp update aborting with chmod ENOENT when concurrent update runs overlapped by using unique download temporary paths.
 - Fixed the browser tool executable probe launching the user's installed GUI Chromium on Windows: the `--version` version probe from ecb22957 was Linux-scoped but ran for every platform candidate, so on Windows it could hand off to a running `chrome.exe`, open a normal browser window, then reject the candidate and fall back to cached Chrome for Testing. The probe is now confined to Linux ([#8445](https://github.com/can1357/oh-my-pi/issues/8445)).
-### Added
-
-- Added namespaced `omp.sh/reasoning` ACP metadata that reports the concrete effort selected for an Auto-classified top-level turn while preserving Auto as the configured thinking option.
-- Added namespaced `omp.sh/async-result` ACP metadata on settled background jobs, so a client can render task/bash completions (id, type, terminal status, label, duration) even when the owning prompt turn has already ended.
-- Added opt-in ambient MCP discovery for ACP sessions via `omp.sh/ambient-mcp-discovery`, letting a client mount host-configured MCP servers alongside its own while reserving bridge server names.
 
 ## [17.3.0] - 2026-08-13
 
